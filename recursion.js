@@ -20,4 +20,15 @@ function range(start, end){
   }
 }
 
-console.log(range(0,10));
+// console.log(range(0,10));
+
+function exponentiation(base, power){
+  if (power === 0){
+    return 1;
+  }
+  else {
+    return base * exponentiation(base, power - 1);
+  }
+}
+
+console.log(exponentiation(2,5));
