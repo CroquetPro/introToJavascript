@@ -15,8 +15,23 @@ Array.prototype.myMap = function(blk){
 
   return mapped;
 };
-var arr = [1,2,3,4];
-arr.myMap(function (el) {
-    console.log(el);
+
+// var arr = [1,2,3,4];
+// arr.myMap(function (el) {
+//   console.log(el);
+// });
+// console.log(arr);
+
+
+Array.prototype.myInject = function(blk, accum){
+  var accum = accum || this.shift();
+  this.myEach(function(elem){
+     accum = blk(accum, elem);
+  });
+  return accum;
+};
+
+var result = [1,2,3,4,5].myInject(function(acc, el){
+    return acc * el;
 });
-console.log(arr);
+console.log(result)
