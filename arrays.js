@@ -1,39 +1,39 @@
-function myUniq(array){
+Array.prototype.myUniq = function(){
   var uniqArray = [];
-  array.forEach(function(elem){
+  this.forEach(function(elem){
     if (uniqArray.indexOf(elem) === -1){
       uniqArray.push(elem);
     }
   });
 
   return uniqArray;
-}
-// console.log(myUniq([1,2,3,1]));
+};
+// console.log([1,2,3,1].myUniq());
 
-function twoSum(array){
+Array.prototype.twoSum = function(){
   var pairs = [];
-  for(var i = 0; i < array.length - 1; i++){
-    for(var j = i; j < array.length; j++){
-      if (array[i] + array[j] === 0){
+  for(var i = 0; i < this.length - 1; i++){
+    for(var j = i; j < this.length; j++){
+      if (this[i] + this[j] === 0){
         pairs.push([i, j]);
       }
     }
   }
   return pairs;
-}
+};
 
-// console.log(twoSum([-1,2,3,1]));
+// console.log([-1,2,3,1].twoSum());
 
-function myTranspose(rows){
+Array.prototype.myTranspose = function(){
   var cols = [];
-  for(var i = 0; i < rows.length; i++){
-    for(var j = 0; j < rows[i].length; j++){
+  for(var i = 0; i < this.length; i++){
+    for(var j = 0; j < this[i].length; j++){
       cols[j] = cols[j] || [];
-      cols[j][i] = rows[i][j];
+      cols[j][i] = this[i][j];
     }
   }
   return cols;
-}
+};
 
 var rows = [
     [0, 1, 2],
@@ -41,4 +41,4 @@ var rows = [
     [6, 7, 8]
   ]
 
-console.log(myTranspose(rows));
+console.log(rows.myTranspose());
