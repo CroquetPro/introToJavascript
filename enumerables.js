@@ -24,7 +24,9 @@ Array.prototype.myMap = function(blk){
 
 
 Array.prototype.myInject = function(blk, accum){
-  var accum = accum || this.shift();
+  if (accum === null){
+    var accum = this.shift();
+  }
   this.myEach(function(elem){
      accum = blk(accum, elem);
   });
@@ -33,5 +35,6 @@ Array.prototype.myInject = function(blk, accum){
 
 var result = [1,2,3,4,5].myInject(function(acc, el){
     return acc * el;
-});
-console.log(result)
+}, 0);
+
+console.log(result);
